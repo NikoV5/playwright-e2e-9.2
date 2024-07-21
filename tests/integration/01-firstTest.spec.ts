@@ -27,7 +27,7 @@ test.describe("First Test Sute", () => {
 
     // expect(title).toBe('TechGlobal Training | Home')
 
-    await expect(page).toHaveTitle('TechGlobal Training | Home')
+    await expect(page).toHaveTitle("TechGlobal Training | Home");
   });
 
   test("Validate page URL", async ({ page }) => {
@@ -37,6 +37,17 @@ test.describe("First Test Sute", () => {
 
     // expect(url).toBe('https://techglobal-training.com/')
 
-    await expect(page).toHaveURL('https://www.techglobal-training.com/')
+    await expect(page).toHaveURL("https://www.techglobal-training.com/");
+  });
+
+  test("My First Test", async ({ page }) => {
+    await page.goto("https://techglobal-training.com/");
+
+    const myLogo = page.locator("#logo");
+    // await page.click('#logo')
+
+    await myLogo.click();
+
+    await expect(myLogo).toBeVisible();
   });
 });
