@@ -21,7 +21,7 @@ test.describe("Playwright 101", async () => {
   // Given('Playwright 101 - Cucumber Syntax', async() => {
   test('Playwright 101 - Cucumber Syntax', async() => {
 
-    const browser = await chromium.launch({ headless: false })
+    const browser = await chromium.launch({ headless: true })
     const context = await browser.newContext()
     const page = await context.newPage()
 
