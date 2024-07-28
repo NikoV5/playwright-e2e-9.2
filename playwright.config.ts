@@ -1,4 +1,4 @@
-import { defineConfig, devices } from "@playwright/test";
+import { defineConfig, devices } from '@playwright/test'
 
 /**
  * Read environment variables from file.
@@ -11,7 +11,7 @@ import { defineConfig, devices } from "@playwright/test";
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: "./tests",
+  testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -26,7 +26,7 @@ export default defineConfig({
     timeout: 5 * 1000
   },
   reporter: [
-    ["html", { open: "never" }],
+    ['html', { open: 'never' }],
     // ["json", { outputFile: "jsonReports/reports.json" }],
     // ["junit", { outputFile: "junitReports/results.xml" }],
     ['list']
@@ -37,16 +37,16 @@ export default defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on",
+    trace: 'on',
     headless: true,
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "chromium",
+      name: 'chromium',
       use: {
-        ...devices["Desktop Chrome"],
+        ...devices['Desktop Chrome'],
         viewport: { width: 1920, height: 1080 },
       },
     },
@@ -88,4 +88,4 @@ export default defineConfig({
   //   url: 'http://127.0.0.1:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
-});
+})

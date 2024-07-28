@@ -1,14 +1,14 @@
-import { test, expect } from "@playwright/test";
-import { clickButton, clickLink } from "../../helpers/clickHelpers";
+import { test, expect } from '@playwright/test'
+import { clickButton, clickLink } from '../../helpers/clickHelpers'
 
-test.describe("Dialogs", () => {
+test.describe('Dialogs', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("https://techglobal-training.com/frontend");
+    await page.goto('https://techglobal-training.com/frontend')
 
-    await clickLink(page, "Alerts");
-  });
+    await clickLink(page, 'Alerts')
+  })
 
-  test("Handing Dialogs", async ({ page }) => {
+  test('Handing Dialogs', async ({ page }) => {
     // await clickButton(page, "Confirmation alert");
     // await clickButton(page, "Prompt alert");
 
@@ -60,30 +60,30 @@ test.describe("Dialogs", () => {
     // await clickButton(page, "Confirmation alert");
     // await clickButton(page, "Prompt alert");
 
-    page.once("dialog", async (dialog) => {
+    page.once('dialog', async (dialog) => {
       await dialog.accept()
-      const message = dialog.message();
+      const message = dialog.message()
 
-      console.log(message + ' THIS IS THE FIRST DIALOG');
-    });
+      console.log(message + ' THIS IS THE FIRST DIALOG')
+    })
 
-    await clickButton(page, "Warning alert");
+    await clickButton(page, 'Warning alert')
 
-    page.once("dialog", async (dialog) => {
+    page.once('dialog', async (dialog) => {
       await dialog.dismiss()
-      const message = dialog.message();
+      const message = dialog.message()
 
-      console.log(message + ' THIS IS THE SECOND DIALOG');
-    });
+      console.log(message + ' THIS IS THE SECOND DIALOG')
+    })
 
-    await clickButton(page, "Confirmation alert");
+    await clickButton(page, 'Confirmation alert')
 
-    page.once("dialog", async (dialog) => {
+    page.once('dialog', async (dialog) => {
       await dialog.accept('My Message')
 
-      console.log(dialog.message() + ' THIS IS THE THIRD DIALOG');
-    });
+      console.log(dialog.message() + ' THIS IS THE THIRD DIALOG')
+    })
 
-    await clickButton(page, "Prompt alert");
-  });
-});
+    await clickButton(page, 'Prompt alert')
+  })
+})
