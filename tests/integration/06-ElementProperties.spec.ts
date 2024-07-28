@@ -57,6 +57,7 @@ test.describe('Element Properties', () => {
     const href = await page.evaluate(() => {
       return document.location.href
     })
+    console.log(href)
 
     const element = page.locator('#main_heading')
 

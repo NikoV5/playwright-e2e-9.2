@@ -32,8 +32,8 @@ test.describe('User Actions', () => {
   test('User Actions - Checkbox and Radio Buttons', async({ page }) => {
 
     const apple = page.getByRole('checkbox', { name: 'Apple' })
-    const microsoft = page.getByRole('checkbox', { name: 'Microsoft' })
-    const tesla = page.getByRole('checkbox', { name: 'Tesla' })
+    // const microsoft = page.getByRole('checkbox', { name: 'Microsoft' })
+    // const tesla = page.getByRole('checkbox', { name: 'Tesla' })
 
 
     await apple.check()
