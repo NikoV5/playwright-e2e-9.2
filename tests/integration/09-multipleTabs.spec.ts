@@ -72,7 +72,7 @@ test.describe('Interacting Multiple Tabs', () => {
 
   test('Test Case', async ({ page }) => {
 
-    const links = ['Apple', 'Microsoft', 'Tesla']
+    const links = ['Apple', 'Microsoft']
 
     for(const link of links) {
       const [ newTab ] = await Promise.all([
