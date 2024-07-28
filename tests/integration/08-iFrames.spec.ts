@@ -49,5 +49,7 @@ test.describe('iFrames', () => {
     await submitBtn.click()
 
     await expect(result).toHaveText(`You entered: ${name} ${lastName}`)
+
+    console.log(process.env.BASE_URL + ' MY BASE URL ~~~~~~~=====***')
   })
 })

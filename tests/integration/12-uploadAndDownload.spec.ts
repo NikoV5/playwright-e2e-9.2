@@ -5,7 +5,7 @@ import path from 'path'
 
 test.describe('Download & Upload', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('https://techglobal-training.com/frontend')
+    await page.goto('/frontend')
 
     await clickLink(page, 'File Download & Upload')
   })
@@ -54,3 +54,6 @@ test.describe('Download & Upload', () => {
     await expect(result).toHaveText(`You uploaded ${uploadPath.slice(uploadPath.lastIndexOf('/') +1)}`)
   })
 })
+
+
+
