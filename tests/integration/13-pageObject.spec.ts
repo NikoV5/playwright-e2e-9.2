@@ -1,22 +1,19 @@
-import { test, expect } from '@playwright/test'
-import { LoginPage } from '../../pages/LoginPage'
+import { test, expect } from '../../fixtures/page-object-fixture'
 
 test.describe('Login', () => {
-  let loginPage: LoginPage
 
   test.beforeEach(async ({ page }) => {
     await page.goto('/frontend/project-2')
-    loginPage = new LoginPage(page)
   })
 
-  test('Test Positive', async () => {
+  test('Test Positive', async ({ loginPage }) => {
     await loginPage.userLogin(process.env.USER_NAME, process.env.USER_PASSWORD)
     await loginPage.loginMessage.waitFor({ state: 'visible' })
 
     await expect(loginPage.loginMessage).toHaveText('You are logged in')
   })
 
-  test('Test Negative', async () => {
+  test('Test Negative', async ({ loginPage }) => {
     await loginPage.userLogin('error', 'error')
     await loginPage.errorMessage.waitFor({ state: 'visible' })
 
