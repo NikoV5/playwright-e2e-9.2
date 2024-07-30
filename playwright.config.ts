@@ -13,6 +13,8 @@ dotenv.config()
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  // globalSetup: 'tests/setup/global.setup.ts',
+  // globalTeardown: '/',
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -41,7 +43,8 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
     headless: true,
-    baseURL: process.env.BASE_URL
+    baseURL: process.env.BASE_URL,
+    // storageState: './user-data/loginAuth.json'
   },
 
   /* Configure projects for major browsers */
@@ -51,6 +54,33 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         viewport: { width: 1920, height: 1080 },
+      },
+      testIgnore:['test/setup/*.ts', 'tests/integration/17-globalSetup.spec.ts']
+    },
+
+    {
+      name: 'setup',
+      testMatch: /global\.setup\.ts/,
+      teardown: 'teardown'
+    },
+
+    {
+      name: 'teardown',
+      testMatch: /global\.teardown\.ts/,
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: './user-data/loginAuth.json'
+      },
+    },
+
+    {
+      name: 'loggedIn',
+      testMatch: '**/17-globalSetup.spec.ts',
+      dependencies: ['setup'],
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1920, height: 1080 },
+        storageState: './user-data/loginAuth.json'
       },
     },
 
