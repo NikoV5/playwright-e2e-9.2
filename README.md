@@ -24,11 +24,14 @@ npm init playwright @latest
 
 This will initialize your project with NPM as well as the latest version of playwright.
 
-## Install Cypress
+## Playwright initial settings when installing
 
-```bash
-npm install cypress -D
-```
+Playwright will ask you a set of questions before installing within the CLI. For this project, these are the settings that you must set:
+
+Do you want to use TypeScript or JavaScript? -> TypeScript
+Where to put your end-to-end tests? -> tests
+Add a GitHub Actions workflow? -> Yes
+Install Playwright browsers (can be done manually via 'npx playwright install')? -> Yes
 
 ## Install the dotenv dependency
 This is used to protect sensitive or environment-specific data
