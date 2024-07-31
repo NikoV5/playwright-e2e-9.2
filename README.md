@@ -64,3 +64,9 @@ npm install dotenv -D
 ```bash
 npm i oracledb -D
 ```
+
+oracleDB wont understand your test because you are using typescript. to fix this, you need to install this package: 
+
+```bash
+npm i --save-dev @types/oracledb
+```
