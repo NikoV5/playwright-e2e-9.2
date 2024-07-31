@@ -9,6 +9,7 @@ After cloning repository, you need to install these dependencies:
 - [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier/v/4.0.0)
 - globals
 - [prettier](https://www.npmjs.com/package/prettier)
+- [oracleDB] (https://www.npmjs.com/package/oracledb)
 
 If you dont have the extensions already installed in VScode, you will need these for cucumber to work:
 - Cucumber (Gherkin) Full Support -> Alexander Krechik
@@ -56,4 +57,10 @@ npm install dotenv -D
 
 ```bash
 
+```
+
+## Install oracleDB
+
+```bash
+npm i oracledb -D
 ```
