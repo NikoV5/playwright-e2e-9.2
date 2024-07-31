@@ -31,6 +31,8 @@ test.describe('iFrames', () => {
     const frameLocator = page.frameLocator('#form_frame')
     const inputFields = frameLocator.locator('#first_name, #last_name')
 
+    await page.pause()
+
     await inputFields.last().waitFor({ state: 'visible' })
 
     const inputFieldsCount = await inputFields.count()

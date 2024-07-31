@@ -10,6 +10,14 @@ test.describe('Login', () => {
     await loginPage.userLogin(process.env.USER_NAME, process.env.USER_PASSWORD)
     await loginPage.loginMessage.waitFor({ state: 'visible' })
 
+    let myName: string
+
+    myName = 'TechGlobal'
+
+    myName = 'School'
+
+    console.log(myName)
+
     await expect(loginPage.loginMessage).toHaveText('You are logged in')
   })
 
